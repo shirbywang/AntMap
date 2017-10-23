@@ -10,12 +10,6 @@ export default class antMap extends Component {
     this.state = {
       coords: []
     }
-
-    setInterval(() => {
-    this.setState(previousState => {
-      return { showText: true };
-    });
-  }, 1000);
   }
 
   componentDidMount() {
@@ -23,7 +17,6 @@ export default class antMap extends Component {
   }
 
   async getDirections(startLoc, destinationLoc) {
-
       try {
           let resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLoc }&destination=${ destinationLoc }`)
           let respJson = await resp.json();
@@ -48,7 +41,7 @@ export default class antMap extends Component {
     return (
       <View style={{flex:1}}>
         <View style={styles.iconBar}>
-
+        <Text style={styles.debugText}> | {this.state.coords} | </Text>
         </View>
         <View style={styles.logoBar}>
           <Image source={logo} style={{width: 125, height: 50}}/>
@@ -68,7 +61,9 @@ export default class antMap extends Component {
           coordinates = {this.state.coords}
           strokeWidth = {2}
           strokeColor = 'red'/>
+
         </View>
+
       </View>
     );
   }
