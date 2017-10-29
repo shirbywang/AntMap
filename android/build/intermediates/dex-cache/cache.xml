@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5803db663655ef5cb38c6bcb17ba326fdb9edfbd">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.2.4_c1ad98f941aed6a4aef0826b75ccb8af22de7f51.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_238facead5920efea5d6fcb5da9f38e5f75c499e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_a54fb2adfb62aad9629735352015137c6d6bf737.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.3.0_901e42397fbcd53c9d845413d4b024c49f8c5d28.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_6f58e1e8879574df1abce223059f72bcea9f6d71.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_19dab5fd3b9052602d62717724f53c376ce127d9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_a8910ea962dad5400be4568fedf0d5bcdc2e9184.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_6c4f9de5478a9738bd8be397cc29defd9b24ee2a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="dd1d0d84da2cff18f741c63a9c3af7d9aa89fdd6">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.2.4_9df1e72cd611660ea5d96ae5cc29f90ad993fcb4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/AntMaps/react-native-maps/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="aba10534054e3fa491d7059bb71895c1b5d9c457">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/AntMaps-react-native-maps-unspecified_29a6a31f58f0c6c084e789c12b62a7e168461854.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/AntMaps/react-native-maps/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="aba10534054e3fa491d7059bb71895c1b5d9c457">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/AntMaps-react-native-maps-unspecified_1cb2697ff6b9f8e634eab40ee3ad0c3733d801e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_10dc81b031ac54ac848e92153a28f9c0d44ecb2b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_e735953b7fa754eab05c67ea167fbfd2db25da95.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9ed08fab37c3a572da1d9ed2bf2e36c8d3e2bc48">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.2.4_943f4c23fc3e9b3b7f3a44acc0567160f3c4c98b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_5bf7fb2cbd16487f58d56ba2dbf0a1eae11b30f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.49.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e013739f7ddb6740bf196dc515d8999a6030f9ea">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.49.3_40c64da8d190463e721873bc37e9c9368d5b97e5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_0eda1baa52eac2ed99c5c9ff2bed669f8f6b6572.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5803db663655ef5cb38c6bcb17ba326fdb9edfbd">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.2.4_d8df05f3d12d89513bd578f175c7ddb7f0817c4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_93e061fa13974d3b06978badf3b0a545845a1d8e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.3.0_aef532697927c1db5357d2079f0e359d1ec22109.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="dd1d0d84da2cff18f741c63a9c3af7d9aa89fdd6">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.2.4_cef2de799df1e56a6b9cc18ccc570c67476375d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_20d1088c65596ab44a53791162537b556de60caf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.3.0_ae91598d15bc0d470110af180b3376c34890a27e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.3.0_977ffb017ff4609743166923ceaf6c95d6f41086.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_8d791fb5e3cad3510eb72ce009819d9cdc4c8dd3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_29eb993951480731a66603bdff60213e64e106bf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.49.3/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_fb6b43683e79b7a17a0ceeead6740b5218854586.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_195021a0170e9e358deb6fbf54c88a163b2ec849.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.49.3/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_cc46353ea91d67576322275ef846eabbfa2ba553.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_ec18b42c576a9bc4672c75c6ae95951eefe7be47.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.3.0_94813648172ed8695263170c7c51165edd8f73ba.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.3.0_fc7ad7d9a1136f090f72157708bad3b4e952204a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9ed08fab37c3a572da1d9ed2bf2e36c8d3e2bc48">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.2.4_79d97f5dab367a4500ad6e11a07bb16028430141.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_49b4620bc9dca5318f018439eeddf0a47d88c379.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_87d3b91745c7be7f7e823325a7aff3a09b877cd7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_09f275e2ebab00ede4d4b69b9aab33f82f8fb632.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_a94428e5d5b58585f67d9f336b1881dd462cc565.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.3.0_81672f81c6b1e83fcf0f2d94c4cb6caf3948a5d5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_e821b276eb4d15dbdb81964f68cce4b87ca92730.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6d0d5e86f5b7203834df01ed78ebfdd5cbf74d48">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.2.4_464b693009b11be6bebbf45a12eb76177b7aa0e3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.3.0_e35981fb64cb6539952b5cce4a6f5144f9729880.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMaps/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_4f08b6b6692932fae427622ab0b67b0c8985c68a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6d0d5e86f5b7203834df01ed78ebfdd5cbf74d48">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.2.4_41774b83d2c132c40fbdeafa4c6408f452b08090.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.49.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e013739f7ddb6740bf196dc515d8999a6030f9ea">
+        <dex dex="/Users/akuma/Documents/GitHub/AntMap/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.49.3_2c24770a55d890631facc5c20db22ca8616391dc.jar" />
+    </item>
+
+</items>
