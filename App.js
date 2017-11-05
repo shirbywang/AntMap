@@ -1,8 +1,8 @@
-import React, { Component } from 'react';   //Needed for Creation of React-Native Objects
-import { Button, Dimensions, Image, StyleSheet, Text, View } from 'react-native'; //Objects used in app
-import { StackNavigator } from 'react-navigation'; //Navigation Libraries
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; //Map Generation Libraries
-import Polyline from '@mapbox/polyline'; //Used for Map navigation overlay (not yet initiated)
+import React, { Component } from 'react';
+import { Button, Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import Polyline from '@mapbox/polyline';
 
 /*
   !!!Note: PLEASE SEE LOADSCREEN CLASS FOR CLASS-BASED COMMENTS (SIMILAR FOR ALL SCREEN CLASSES)!!!
@@ -25,15 +25,13 @@ class LoadScreen extends React.Component {
     return (
       //Viewing Container for files (if there is more than one object, there must be a enclosing container)
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'goldenrod' }}>
-      //Add image to the screen
-      <Image
-            style={{width: 200, height: 75}}
-            source={{uri: 'https://lh3.googleusercontent.com/UKHz9AkBFV-a5c1TTRgvG8jk5YVjpOQX77vRYoFhT_ZAaZk487uvHznvSHWP4okpM6FOKNML_Vqj_WH7DwWZ37RxNjMMTG8gIcZryP1y_uygyLfMS34VUaqECq-3Y6WmE084fvJSjjczI5LIEMZULUmrYoIuuT9gOXOkNpJkGgfIL-t5OcL4goYz-HFsJgmmLFFJBVJKGC50JolEz5Wi5iuOM83BqCihVvXH4xjt0DQt_yl9vad28DvKrfoSYBfn9S7jALtPzGmYq_w-DH7p3TNEFYSYRILWa6veUju4QFMge5fx02v-fUilsxShYYP3YVRPeWGAqF-lJaeOKRjMUUfPG1Sn4HvcuSlXEHKNgzddOflemMW0goa9lWBfaChw1xje7ltEgL3DsX09ZryBZIAEpCR5oj8O9QOfMqkQVOv3PPD9Y9iSCGIrz1jb9RnSvggU9Tw_29_7TdVQYqUZPahLkT1IDq3CXhN79wlr3RMBuH3P3hzsZX7HBGn44FGmsImLNvuy1Q7tSS3Y6g_0QjC6-Ia-JSfwl3iyucCuJJ0bX4BW8K1lxuaTqcr7sWX7UGTdrKwTjGF0TQMzq7K31xbn1nKQunNda50rtxtuUfVlKThi047SVqB7kAQuKYsY-lDdcChEgCiNLAOYyGiXI9IW8KUchV8F1io=w524-h222-no'
- }}
-          />
-      <Text>         </Text>  //Used for spacing between button and image
-      //Button
-      <Button color='dodgerblue' title= " Go to Home " onPress={() => navigate('Home')} />
+        <Image
+              style={{width: 200, height: 75}}
+              source={{uri: 'https://lh3.googleusercontent.com/UKHz9AkBFV-a5c1TTRgvG8jk5YVjpOQX77vRYoFhT_ZAaZk487uvHznvSHWP4okpM6FOKNML_Vqj_WH7DwWZ37RxNjMMTG8gIcZryP1y_uygyLfMS34VUaqECq-3Y6WmE084fvJSjjczI5LIEMZULUmrYoIuuT9gOXOkNpJkGgfIL-t5OcL4goYz-HFsJgmmLFFJBVJKGC50JolEz5Wi5iuOM83BqCihVvXH4xjt0DQt_yl9vad28DvKrfoSYBfn9S7jALtPzGmYq_w-DH7p3TNEFYSYRILWa6veUju4QFMge5fx02v-fUilsxShYYP3YVRPeWGAqF-lJaeOKRjMUUfPG1Sn4HvcuSlXEHKNgzddOflemMW0goa9lWBfaChw1xje7ltEgL3DsX09ZryBZIAEpCR5oj8O9QOfMqkQVOv3PPD9Y9iSCGIrz1jb9RnSvggU9Tw_29_7TdVQYqUZPahLkT1IDq3CXhN79wlr3RMBuH3P3hzsZX7HBGn44FGmsImLNvuy1Q7tSS3Y6g_0QjC6-Ia-JSfwl3iyucCuJJ0bX4BW8K1lxuaTqcr7sWX7UGTdrKwTjGF0TQMzq7K31xbn1nKQunNda50rtxtuUfVlKThi047SVqB7kAQuKYsY-lDdcChEgCiNLAOYyGiXI9IW8KUchV8F1io=w524-h222-no'
+              }}
+        />
+        <Text>         </Text>
+        <Button color='dodgerblue' title= " Go to Home " onPress={() => navigate('Home')} />
       </View>
     )
   }
