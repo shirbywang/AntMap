@@ -3,6 +3,7 @@ import { BackHandler, Button, Dimensions, StyleSheet, Text, View } from 'react-n
 import Image from 'react-native-scalable-image';
 import { StackNavigator } from 'react-navigation';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import NightMapStyles from './MapStyles/NightMapStyles';
 import Polyline from '@mapbox/polyline';
 
 /*
@@ -27,7 +28,7 @@ class LoadScreen extends React.Component {
       //Viewing Container for files (if there is more than one object, there must be a enclosing container)
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'goldenrod' }}>
         <Image
-              style={{width: 200, height: 75,}}
+              style={{width: 150, height: 50,}}
               source={{uri: 'https://lh3.googleusercontent.com/UKHz9AkBFV-a5c1TTRgvG8jk5YVjpOQX77vRYoFhT_ZAaZk487uvHznvSHWP4okpM6FOKNML_Vqj_WH7DwWZ37RxNjMMTG8gIcZryP1y_uygyLfMS34VUaqECq-3Y6WmE084fvJSjjczI5LIEMZULUmrYoIuuT9gOXOkNpJkGgfIL-t5OcL4goYz-HFsJgmmLFFJBVJKGC50JolEz5Wi5iuOM83BqCihVvXH4xjt0DQt_yl9vad28DvKrfoSYBfn9S7jALtPzGmYq_w-DH7p3TNEFYSYRILWa6veUju4QFMge5fx02v-fUilsxShYYP3YVRPeWGAqF-lJaeOKRjMUUfPG1Sn4HvcuSlXEHKNgzddOflemMW0goa9lWBfaChw1xje7ltEgL3DsX09ZryBZIAEpCR5oj8O9QOfMqkQVOv3PPD9Y9iSCGIrz1jb9RnSvggU9Tw_29_7TdVQYqUZPahLkT1IDq3CXhN79wlr3RMBuH3P3hzsZX7HBGn44FGmsImLNvuy1Q7tSS3Y6g_0QjC6-Ia-JSfwl3iyucCuJJ0bX4BW8K1lxuaTqcr7sWX7UGTdrKwTjGF0TQMzq7K31xbn1nKQunNda50rtxtuUfVlKThi047SVqB7kAQuKYsY-lDdcChEgCiNLAOYyGiXI9IW8KUchV8F1io=w524-h222-no'
               }}
         />
@@ -61,14 +62,26 @@ class HomeScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
-        <View style={styles.overlay}>
-          <Button width='30' height='10' color='rgba(255,0,0,0.75)' title= " < Debug " onPress={() => navigate('Load')}/>
+      <View style={styles.container}>
+        <MapView
+          provider= { PROVIDER_GOOGLE }
+          style= { styles.map }
+          customMapStyle={ NightMapStyles }
+          initialRegion={{
+            latitude: 33.646064,
+            longitude: -117.842746,
+            latitudeDelta: 0.010,
+            longitudeDelta: 0.008,
+          }}
+          map
+        />
+        <View style={styles.body}>
+          <Button height='15' color='rgba(192, 192, 63, 0.6)' title= "Start A New Tour" onPress={() => navigate('List')}/>
+
+          <View style={styles.overlay}>
+            <Button width='30' height='10' color='rgba(255,0,0,1)' title= "Debug" onPress={() => navigate('Load')}/>
+          </View>
         </View>
-        <View style={styles.overlay, {alignItems:'center',}}>
-          <Button height='15' color='rgba(10,10,200,0.75)' title= " Start A New Tour " onPress={() => navigate('List')}/>
-        </View>
-        <Button width='30' height='10' color='rgba(255,0,0,0.75)' title= " Exit " onPress={() => BackHandler.exitApp()}/>
       </View>
     )
   }
@@ -96,13 +109,15 @@ class ListScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <View style={{flex:2, flexDirection:'column', justifyContent:'space-between', width: 150, height:50}}>
-          <Text>           </Text>
-          <Button color='rgba(52,52,52,0.8)' title= " Libraries " onPress={() => BackHandler.exitApp() } />
-          <Button color='rgba(52,52,52,0.8)' title= " Residences " onPress={() => BackHandler.exitApp() } />
-          <Button color='rgba(52,52,52,0.8)' title= " Social Areas " onPress={() => BackHandler.exitApp() } />
-          <Button color='rgba(52,52,52,0.8)' title= " Landmarks " onPress={() => BackHandler.exitApp() } />
-          <Button color='rgba(250,15,15,0.8)' title= " Exit " onPress={() => BackHandler.exitApp() } />
+        <View style={styles.body2}>
+          <View style={{flex:2,flexDirection:'column', justifyContent:'space-between', width: 150, height:50}}>
+            <Text> </Text>
+            <Button color='rgba(192, 192, 63, 0.75)' title= " Libraries " onPress={() => BackHandler.exitApp() } />
+            <Button color='rgba(192, 192, 63, 0.75)' title= " Residences " onPress={() => BackHandler.exitApp() } />
+            <Button color='rgba(192, 192, 63, 0.75)' title= " Social Areas " onPress={() => BackHandler.exitApp() } />
+            <Button color='rgba(192, 192, 63, 0.75)' title= " Landmarks " onPress={() => BackHandler.exitApp() } />
+            <Text> </Text>
+          </View>
         </View>
       </View>
     )
@@ -230,19 +245,37 @@ export default RootNavigator;
 //Style Sheets for other classes (can be referred in style section of each object, such as map for mapstyle)
 const styles = StyleSheet.create({
 
+  container: {
+    flex:1,
+    backgroundColor: 'black',
+  },
+
   overlay: {
     flex: 1,
     position: 'absolute',
   },
 
+  body: {
+    flex: 2,
+  },
+
+  body2: {
+    flex: 2,
+    alignItems: 'center',
+  },
+
+  header: {
+    flex:1,
+  },
+
+  footer: {
+    flex: 2,
+    bottom: 0,
+  },
+
   backgroundImage: {
     flex: 1,
     position: 'absolute',
-    backgroundColor: 'black',
-    alignItems: 'center',
-  },
-  container: {
-    flex:1,
     backgroundColor: 'black',
     alignItems: 'center',
   },
