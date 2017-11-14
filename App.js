@@ -10,6 +10,60 @@ import Polyline from '@mapbox/polyline';
   !!!Note: PLEASE SEE LOADSCREEN CLASS FOR CLASS-BASED COMMENTS (SIMILAR FOR ALL SCREEN CLASSES)!!!
 */
 
+class DirectionsApp extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      coords: []
+    }
+  }
+
+  componentDidMount() {
+    // find your origin and destination point coordinates and pass it to our method.
+    // I am using Bursa,TR -> Istanbul,TR for this example
+    this.getDirections("40.1884979, 29.061018", "41.0082,28.9784")
+  }
+
+  async getDirections(startLoc, destinationLoc) {
+        try {
+            let resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLoc }&destination=${ destinationLoc }`)
+            let respJson = await resp.json();
+            let points = Polyline.decode(respJson.routes[0].overview_polyline.points);
+            let coords = points.map((point, index) => {
+                return  {
+                    latitude : point[0],
+                    longitude : point[1]
+                }
+            })
+            this.setState({coords: coords})
+            return coords
+        } catch(error) {
+            alert(error)
+            return error
+        }
+    }
+
+  render() {
+    return (
+      <View>
+        <MapView style={styles.map} initialRegion={{
+          latitude:41.0082,
+          longitude:28.9784,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421
+        }}>
+
+        <MapView.Polyline
+            coordinates={this.state.coords}
+            strokeWidth={2}
+            strokeColor="red"/>
+
+        </MapView>
+      </View>
+    );
+  }
+}
+
 //Loading Screen Class - Used for Screen #1 (Loading Screen), including navigation settings and view
 class LoadScreen extends React.Component {
   //Used for Screen-to-screen navigation and the design of the top-bar
@@ -240,8 +294,6 @@ const RootNavigator = StackNavigator({
 //Used for initial running when app is opened
 export default RootNavigator;
 
-//<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'black' }}>
-
 //Style Sheets for other classes (can be referred in style section of each object, such as map for mapstyle)
 const styles = StyleSheet.create({
 
@@ -304,6 +356,16 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: 'flex-end',
     alignItems: 'center',
+  },
+
+  map2: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height
   },
 
   logoBar: {
