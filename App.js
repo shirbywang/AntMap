@@ -1,71 +1,47 @@
 import React, { Component } from 'react';
-import { BackHandler, Button, Dimensions, StyleSheet, Text, View } from 'react-native';
+import { AsyncStorage, BackHandler, Button, Dimensions, StyleSheet, Text, View } from 'react-native';
 import Image from 'react-native-scalable-image';
 import { StackNavigator } from 'react-navigation';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import NightMapStyles from './MapStyles/NightMapStyles';
 import Polyline from '@mapbox/polyline';
 
+var TOUR_DB = [
+  { name:'Cross Cultural Center'            , lat:33.653283, long: -117.743652, },  //00
+  { name:'Aldrich Hall'                     , lat:33.648461, long: -117.840436, },  //01
+  { name:'Langson Library'                  , lat:33.647067, long: -117.841051, },  //02
+  { name:'Engineering Hall'                 , lat:33.643583, long: -117.841422, },  //03
+  { name:'Physical Science Classroom'       , lat:33.643492, long: -117.842575, },  //04
+  { name:'Ayala Science Library'            , lat:33.649421, long: -117.844023, },  //05
+  { name:'Berk Hall Nursing Science'        , lat:33.64656 , long: -117.856254, },  //06
+  { name:'Humanities Gateway'               , lat:33.648227, long: -117.84443 , },  //07
+  { name:'Clair Trevor Theatre'             , lat:33.650742, long: -117.846335, },  //08
+  { name:'Mesa Court'                       , lat:33.652979, long: -117.845317, },  //09
+  { name:'Bren Events Center'               , lat:33.649411, long: -117.846964, },  //10
+  { name:'Arroyo Vista'                     , lat:33.646854, long: -117.829043, },  //11
+  { name:'Vista Del Campo'                  , lat:33.640441, long: -117.824051, },  //12
+  { name:'Anteater Recreation Center (ARC)' , lat:33.643361, long: -117.827945, },  //13
+  { name:'Middle Earth'                     , lat:33.64465 , long: -117.837548, },  //14
+  { name:'Infinity Fountain'                , lat:33.644684, long: -117.843529, },  //15
+  { name:'Student Center'                   , lat:33.648811, long: -117.842411, },  //16
+  { name:'Brian Pellar Sculpture'           , lat:33.648461, long: -117.840836, },  //17
+  { name:'Laurel L. Wilkening Rose Garden'  , lat:33.648461, long: -117.840836, },  //18
+  { name:'UCI Flagpoles'                    , lat:33.648018, long: -117.840836, },  //19
+];
+
+var TOUR_ROUTES = [
+  { name: "Libraries"    ,route: [2,5]},                 //0
+  { name: "Residences"   ,route: [9,11,12,14]},          //1
+  { name: "Social Areas" ,route: [0,8,10,13,16]},        //2
+  { name: "Landmarks"    ,route: [10,15,16,17,18,19]},   //3
+]
+
 /*
   !!!Note: PLEASE SEE LOADSCREEN CLASS FOR CLASS-BASED COMMENTS (SIMILAR FOR ALL SCREEN CLASSES)!!!
 */
 
-class DirectionsApp extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      coords: []
-    }
-  }
-
-  componentDidMount() {
-    // find your origin and destination point coordinates and pass it to our method.
-    // I am using Bursa,TR -> Istanbul,TR for this example
-    this.getDirections("40.1884979, 29.061018", "41.0082,28.9784")
-  }
-
-  async getDirections(startLoc, destinationLoc) {
-        try {
-            let resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLoc }&destination=${ destinationLoc }`)
-            let respJson = await resp.json();
-            let points = Polyline.decode(respJson.routes[0].overview_polyline.points);
-            let coords = points.map((point, index) => {
-                return  {
-                    latitude : point[0],
-                    longitude : point[1]
-                }
-            })
-            this.setState({coords: coords})
-            return coords
-        } catch(error) {
-            alert(error)
-            return error
-        }
-    }
-
-  render() {
-    return (
-      <View>
-        <MapView style={styles.map} initialRegion={{
-          latitude:41.0082,
-          longitude:28.9784,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421
-        }}>
-
-        <MapView.Polyline
-            coordinates={this.state.coords}
-            strokeWidth={2}
-            strokeColor="red"/>
-
-        </MapView>
-      </View>
-    );
-  }
-}
-
 //Loading Screen Class - Used for Screen #1 (Loading Screen), including navigation settings and view
-class LoadScreen extends React.Component {
+class LoadScreen extends React.Component   {
   //Used for Screen-to-screen navigation and the design of the top-bar
   static navigationOptions = {
       title: 'Loading',                 //Reference Name of Screen
@@ -80,34 +56,22 @@ class LoadScreen extends React.Component {
     //How the page is rendered for viewing
     return (
       //Viewing Container for files (if there is more than one object, there must be a enclosing container)
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'goldenrod' }}>
-        <Image
-              style={{width: 150, height: 50,}}
-              source={{uri: 'https://lh3.googleusercontent.com/UKHz9AkBFV-a5c1TTRgvG8jk5YVjpOQX77vRYoFhT_ZAaZk487uvHznvSHWP4okpM6FOKNML_Vqj_WH7DwWZ37RxNjMMTG8gIcZryP1y_uygyLfMS34VUaqECq-3Y6WmE084fvJSjjczI5LIEMZULUmrYoIuuT9gOXOkNpJkGgfIL-t5OcL4goYz-HFsJgmmLFFJBVJKGC50JolEz5Wi5iuOM83BqCihVvXH4xjt0DQt_yl9vad28DvKrfoSYBfn9S7jALtPzGmYq_w-DH7p3TNEFYSYRILWa6veUju4QFMge5fx02v-fUilsxShYYP3YVRPeWGAqF-lJaeOKRjMUUfPG1Sn4HvcuSlXEHKNgzddOflemMW0goa9lWBfaChw1xje7ltEgL3DsX09ZryBZIAEpCR5oj8O9QOfMqkQVOv3PPD9Y9iSCGIrz1jb9RnSvggU9Tw_29_7TdVQYqUZPahLkT1IDq3CXhN79wlr3RMBuH3P3hzsZX7HBGn44FGmsImLNvuy1Q7tSS3Y6g_0QjC6-Ia-JSfwl3iyucCuJJ0bX4BW8K1lxuaTqcr7sWX7UGTdrKwTjGF0TQMzq7K31xbn1nKQunNda50rtxtuUfVlKThi047SVqB7kAQuKYsY-lDdcChEgCiNLAOYyGiXI9IW8KUchV8F1io=w524-h222-no'
-              }}
-        />
+      <View style={{ flex: 1, alignItems: 'center', justifyContent:'space-between', backgroundColor:'black' }}>
         <Text>         </Text>
         <Button color='dodgerblue' title= " Go to Home " onPress={() => navigate('Home')} />
-        <Text> </Text>
         <Button title= " Go to Loading " onPress={() => navigate('Load') } />
-        <Text> </Text>
         <Button title= " Go to Search  " onPress={() => navigate('Search') } />
-        <Text> </Text>
         <Button title= " Go to Listing " onPress={() => navigate('List') } />
-        <Text> </Text>
         <Button title= " Go to Summary " onPress={() => navigate('Summary') } />
-        <Text> </Text>
         <Button title= " Go to MapScr  " onPress={() => navigate('Maps') } />
-        <Text> </Text>
         <Button title= " Go to Setting " onPress={() => navigate('Setting') } />
-        <Text> </Text>
         <Button title= " Go to Landmark" onPress={() => navigate('Landmark') } />
+        <Text>         </Text>
       </View>
     )
   }
 };
-
-class HomeScreen extends React.Component {
+class HomeScreen extends React.Component   {
   static navigationOptions = {
     title: "Home",
     header: null,
@@ -140,7 +104,6 @@ class HomeScreen extends React.Component {
     )
   }
 };
-
 class SearchScreen extends React.Component {
   static navigationOptions = { title: "Search", };
 
@@ -152,12 +115,23 @@ class SearchScreen extends React.Component {
     )
   }
 };
-
-class ListScreen extends React.Component {
+class ListScreen extends React.Component   {
   static navigationOptions = {
     title: "Listings",
     header: null,
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        tour: '0',
+    };
+  }
+
+  selectTour(choice) {
+      AsyncStorage.setItem('tour',JSON.stringify(choice));
+      this.props.navigation.navigate('Summary');
+  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -165,11 +139,11 @@ class ListScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.body2}>
           <View style={{flex:2,flexDirection:'column', justifyContent:'space-between', width: 150, height:50}}>
-            <Text> </Text>
-            <Button color='rgba(192, 192, 63, 0.75)' title= " Libraries " onPress={() => BackHandler.exitApp() } />
-            <Button color='rgba(192, 192, 63, 0.75)' title= " Residences " onPress={() => BackHandler.exitApp() } />
-            <Button color='rgba(192, 192, 63, 0.75)' title= " Social Areas " onPress={() => BackHandler.exitApp() } />
-            <Button color='rgba(192, 192, 63, 0.75)' title= " Landmarks " onPress={() => BackHandler.exitApp() } />
+            <Text style={{color:'white',justifyContent:'center',}}>        Select a Tour </Text>
+                <Button color='rgba(192, 192, 63, 0.75)' title= " Libraries " onPress={() => this.selectTour(0) } />
+                <Button color='rgba(192, 192, 63, 0.75)' title= " Residences " onPress={() => this.selectTour(1) } />
+                <Button color='rgba(192, 192, 63, 0.75)' title= " Social Areas " onPress={() => this.selectTour(2) } />
+                <Button color='rgba(192, 192, 63, 0.75)' title= " Landmarks " onPress={() => this.selectTour(3) } />
             <Text> </Text>
           </View>
         </View>
@@ -177,19 +151,33 @@ class ListScreen extends React.Component {
     )
   }
 };
-
 class SummaryScreen extends React.Component {
-  static navigationOptions = { title: "Summary", };
+  static navigationOptions = {
+    title: "Summary",
+    header: null,
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        tour: '0',
+    };
+  }
+
+  componentDidMount() {
+      AsyncStorage.getItem('tour').then((value) => { this.setState({'tour': value}) }).done();
+
+  }
 
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text> {this.state.tour} </Text>
       </View>
     )
   }
 };
-
 class MapScreen extends React.Component {
   static navigationOptions = {
     title: "Map",
@@ -212,7 +200,6 @@ class MapScreen extends React.Component {
     );
   }
 };
-
 class SettingScreen extends React.Component {
   static navigationOptions = { title: "Settings", };
 
@@ -224,7 +211,6 @@ class SettingScreen extends React.Component {
     )
   }
 };
-
 class LandmarkScreen extends React.Component {
   static navigationOptions = { title: "Landmark", };
 
