@@ -180,45 +180,38 @@ export class MapScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        fromlat: null,
-        fromlong: null,
-        tolat: null,
-        tolong: null,
+        from: {lat: 33.653283, long: -117.743652},
+        to:   {lat: 33.653283, long: -117.743652},
         route: [],
     };
   }
 
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((p)=> {
+        this.setState({from: {lat:p.latitude,long:p.longitude}});
+      });
+    } else {
+      this.setState(from: {lat: 33.653283, long: -117.743652});
+    }
+  }
   async loadCurrTour() {
       const value = await AsyncStorage.getItem('route');
       var route = value.split(',')
       this.setState({route: route });
 
+
+
 //Issue is here - t and setstate is not applying outside of getCurrentPosition
-      if(route[0] == 0)
-      {
-        console.warn("In If:",this.state.fromLat,'-',this.state.fromLong)
-        navigator.geolocation.getCurrentPosition
-        (
-          (position) =>
-          {
-            this.setState
-            ({
-               fromLat: position.coords.latitude,
-               fromLong: position.coords.longitude,
-            })
-            console.warn("In GetPosition:",this.state.fromLat,'-',this.state.fromLong)
-          },
-          (error) => console.warn(JSON.stringify(error)),
-          { enableHighAccuracy: true }
-        );
-        console.warn("After:",this.state.fromLat,':',this.state.fromLong)
-      } else
-      {
-        this.setState({'from':[TOUR_DB[route[0]].lat,TOUR_DB[route[0]].long]})
+
+      if(route[0] == 0) {
+          this.getLocation();
+          console.warn(this.state.from.lat)
+          console.warn(this.state.from.long)
+
       }
 
-
-      this.setState({'to':[TOUR_DB[route[1]].lat,TOUR_DB[route[1]].long]})
+      //this.setState({'to':[TOUR_DB[route[1]].lat,TOUR_DB[route[1]].long]})
   }
 
   componentDidMount() {
