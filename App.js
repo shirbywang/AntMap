@@ -19,12 +19,6 @@ const RootNavigator = StackNavigator({
       headerTitle: 'Loading...',
     },
   },
-  Search: {
-    screen: SearchScreen,
-    navigationOptions: {
-      headerTitle: 'Searching',
-    },
-  },
   List: {
     screen: ListScreen,
     navigationOptions: {

@@ -30,8 +30,8 @@ export var TOUR_DB =
 
 export var TOUR_ROUTES =
 [
-  { name: "Libraries"    ,route: [0,3,6]},                 //0
+  { name: "Library"    ,route: [0,3,6]},                 //0
   { name: "Residences"   ,route: [0,10,12,13,15]},         //1
-  { name: "Social Areas" ,route: [0,1,9,11,14,17]},        //2
+  { name: "Social Area" ,route: [0,1,9,11,14,17]},        //2
   { name: "Landmarks"    ,route: [0,11,16,17,18,19,20]},   //3
 ]

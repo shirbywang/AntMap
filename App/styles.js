@@ -5,54 +5,33 @@ import { Dimensions, StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
 
   container: {
-    flex:1,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     backgroundColor: 'black',
   },
 
+  topBar: {
+    //backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+
+  contentContainer: {
+    //backgroundColor: 'skyblue',
+  },
+
+  botBar: {
+    //backgroundColor: 'steelblue',
+  },
+
   overlay: {
-    flex: 1,
     position: 'absolute',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
 
   body: {
     flex: 2,
-  },
-
-  body2: {
-    flex: 2,
     alignItems: 'center',
-  },
-
-  header: {
-    flex:1,
-  },
-
-  footer: {
-    flex: 2,
-    bottom: 0,
-  },
-
-  backgroundImage: {
-    flex: 1,
-    position: 'absolute',
-    backgroundColor: 'black',
-    alignItems: 'center',
-  },
-
-  titleWrapper: {
-
-  },
-
-  inputWrapper: {
-
-  },
-
-  contentContainer: {
-    flex: 1
-  },
-
-  footer: {
-    height: 35
   },
 
   map: {
@@ -62,37 +41,31 @@ export const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     justifyContent: 'flex-end',
+    flexDirection: 'column',
     alignItems: 'center',
   },
 
-  map2: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height
-  },
-
-  logoBar: {
-    backgroundColor: 'gold',
-    height: 50,
-    alignItems:'center',
-  },
-
-  iconBar: {
-    alignItems:'center',
-    height: 25,
-    backgroundColor: 'black',
-  },
-
-  debugText: {
+  barText: {
     color: 'white',
     fontWeight: 'bold',
+    textAlign:'center',
   },
 
-  buttonStyle: {
+  containerText: {
+    color: 'white',
+    textAlign:'left',
+  },
 
-  }
+  summaryStop: {
+    //justifyContent: 'left',
+    flexDirection: 'row',
+  },
+
+  bgImage: {
+    flex: 1,
+    resizeMode: 'stretch',
+  },
+
+
+
 })
