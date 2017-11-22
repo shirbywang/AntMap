@@ -14,11 +14,11 @@ export var TOUR_DB =
   { name:'Claire Trevor Theatre'            , lat:33.650742, long: -117.846335, },  //09
   { name:'Mesa Court'                       , lat:33.652979, long: -117.845317, },  //10
   //Kimberly
-  { name:'Bren Events Center'               , lat:33.649411, long: -117.846964, },  //11
-  { name:'Arroyo Vista'                     , lat:33.646854, long: -117.829043, },  //12
-  { name:'Vista Del Campo'                  , lat:33.640441, long: -117.824051, },  //13
-  { name:'Anteater Recreation Center (ARC)' , lat:33.643361, long: -117.827945, },  //14
-  { name:'Middle Earth'                     , lat:33.64465 , long: -117.837548, },  //15
+  { name:'Bren Events Center'               , lat:33.649411, long: -117.846964, description:"The Bren Events Center is home to a wide variety of events from sporting events to musical performance to exhibitions and much more. It provides exciting entertainment to thousands of fans each year. "},  //11
+  { name:'Arroyo Vista'                     , lat:33.646854, long: -117.829043, description:"Arroyo Vista (commonly referred to as AV) is a theme sponsored housing community that provides homes to undergraduates and transfer students. Each house has 16 to 34 residents living in double occupancy rooms. Academic, special theme houses and greek themed homes can be found in Arroyo Vista."},  //12
+  { name:'Vista Del Campo'                  , lat:33.640441, long: -117.824051, description:"Vista Del Campo (also known as VDC) is a housing community owned by ACC apartments located on the east side of campus. It is home to undergraduate students (second year and above) and graduate students. VDC provides apartment style homes from 1 Bedroom to 4 Bedroom under lease agreements."},  //13
+  { name:'Anteater Recreation Center (ARC)' , lat:33.643361, long: -117.827945, description:"The ARC is an indoor 2-floor gym facility equipped with state-of-the art equipment. It provides over 35 free exercise classes, CPR/First Aid classes, personal training and much more. It is home for all club sports and intramural sports every quarter."},  //14
+  { name:'Middle Earth'                     , lat:33.64465 , long: -117.837548, description:"Middle Earth is a first year housing community inspired by J.R.R Tolkien’s Lord of the Rings. It has 24 residence halls with 45 to 75 residents and a live-in resident advisor per hall. The community also has a dining hall, music room, study rooms, and a housing office. There is currently construction in the community. "},  //15
   //David
   { name:'Infinity Fountain'                , lat:33.644684, long: -117.843529, },  //16
   { name:'Student Center'                   , lat:33.648811, long: -117.842411, },  //17
