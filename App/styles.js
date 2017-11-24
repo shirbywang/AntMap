@@ -54,6 +54,7 @@ export const styles = StyleSheet.create({
   containerText: {
     color: 'white',
     textAlign:'left',
+    fontSize: 16,
   },
 
   summaryStop: {
