@@ -27,6 +27,11 @@ export class HomeScreen extends React.Component     {
             provider= { PROVIDER_GOOGLE }
             style= { styles.map }
             customMapStyle={ NightMapStyles }
+            showsUserLocation= {true}
+            zoomEnabled	= {false}
+            rotateEnabled = {false}
+            scrollEnabled	= {false}
+            showsPointsOfInterest = {false}
             initialRegion={{
               latitude: 33.646064,
               longitude: -117.842746,
@@ -35,7 +40,10 @@ export class HomeScreen extends React.Component     {
             }}
           />
             <View style={styles.topBar}>
-              <Button height='15' color='rgba(192, 192, 63, 0.6)' title= "Start A New Tour" onPress={() => navigate('List')}/>
+              <Image source={require('../DB/Photos/AntMapLogo.png')}/>
+            </View>
+            <View>
+              <Button height='15' color='rgba(192, 192, 63, 0.45)' title= "Start A New Tour" onPress={() => navigate('List')}/>
             </View>
             <View style={styles.contentContainer}/>
             <View style={styles.botBar}/>
@@ -136,22 +144,23 @@ export class SummaryScreen extends React.Component  {
                 return (
                   <View key={key}>
                     <View style={styles.summaryStop} >
-                      <Image source={require('../Photos/thumbnail.jpg')} style={styles.bgImage}>
+                      <Image source={TOUR_DB[prop].picture}/>
                         <View style={styles.summaryStop}>
-                          <Image source={require('../Photos/thumbnail.jpg')}/>
+                          <Image source={require('../DB/Photos/backdrop.png')} style={styles.bgImage}>
                           <View style={{flexDirection: 'column',}}>
-                            <Text style={styles.containerText}> Stop #{key} </Text>
-                            <Text style={styles.containerText}>  {TOUR_DB[prop].name} </Text>
+                            <Text style={styles.boldContainerText}>    Stop #{key} </Text>
+                            <Text> </Text>
+                            <Text style={styles.containerText}>        {TOUR_DB[prop].name} </Text>
                           </View>
+                          </Image>
                         </View>
-                      </Image>
                     </View>
-                    <Image source={require('../Photos/sumArrow.png')}/>
+                    <Image source={require('../DB/Photos/sumArrow.png')}/>
                   </View>
                 )
               }
               })}
-              <Text style={styles.containerText}>    Tour End    </Text>
+              <Text style={styles.containerText}>        Tour End    </Text>
             </ScrollView>
           </View>
           <View style={styles.botBar}>
@@ -170,12 +179,20 @@ export class MapScreen extends React.Component      {
 
   constructor(props) {
     super(props);
+    this.mapref = null;
     this.state = {
       from: {latitude: 20.000, longitude: -117.0},
       to:   {latitude: 20.000, longitude: -117.0},
       route: [],
       coords: [],
+
     };
+  }
+
+  onLayout() {
+    var a = this.state.from;
+    var b = this.state.to;
+
   }
 
   componentDidMount() {
@@ -238,6 +255,8 @@ export class MapScreen extends React.Component      {
       <MapView
       provider= { PROVIDER_GOOGLE }
       style= { styles.map }
+      ref={(ref) => { this.mapRef = ref }}
+      //onLayout = {() => this.map.fitToCoordinates(this.props.myLatLongs,{edgePadding: { top: 10, right: 10, bottom: 10, left: 10 }, animated: false})}
       customMapStyle={ NightMapStyles }
       initialRegion={{
         latitude: 33.646064,
@@ -264,7 +283,7 @@ export class MapScreen extends React.Component      {
         <View style={styles.topBar}/>
         <View style={styles.contentContainer}/>
         <View style={styles.botBar}>
-        <Button height='15' width ='100' color='rgba(192, 192, 63, 0.6)' title= "I'm there!" onPress={() => this.arriveAtLandmark()}/>
+        <Button height='15' width ='100' color='rgba(192, 192, 63, 0.85)' title= "I'm there!" onPress={() => this.arriveAtLandmark()}/>
         </View>
         </View>
       )
@@ -280,7 +299,7 @@ export class LandmarkScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        site: null,
+        site: 0,
     };
   }
 
@@ -295,7 +314,7 @@ export class LandmarkScreen extends React.Component {
     var r = v.substr(2,(v.length));
     AsyncStorage.setItem('route', r)
     var route = r.split(',')
-    if(r.length > 1 )
+    if(route.length <= 1 )
     {
       navigate('End');
     }
@@ -308,10 +327,15 @@ export class LandmarkScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <View style={styles.topBar}/>
-        <View style={styles.contentContainer}/>
+        <View style={styles.topBar}>
+          <Text style={styles.containerText}> {TOUR_DB[this.state.site].name} </Text>
+        </View>
+        <View style={styles.contentContainer}>
+          <Image source={TOUR_DB[this.state.site].picture}/>
+          <Text style={styles.containerText}>      {TOUR_DB[this.state.site].desc} </Text>
+        </View>
         <View style={styles.botBar}>
-          <Button height='15' width ='100' color='rgba(192, 192, 63, 0.6)' title= "I'm there!" onPress={() => this.startNextStart()}/>
+          <Button height='15' width ='100' color='rgba(192, 192, 63, 0.6)' title= "Go to the next stop!" onPress={() => this.startNextStart()}/>
         </View>
       </View>
     )

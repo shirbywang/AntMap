@@ -12,10 +12,14 @@ export const styles = StyleSheet.create({
   },
 
   topBar: {
-    //backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    //backgroundColor: 'darkblue',
+    alignItems: 'center',
   },
 
   contentContainer: {
+    justifyContent:'flex-start',
+    top:0,
     //backgroundColor: 'skyblue',
   },
 
@@ -49,10 +53,19 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign:'center',
+    fontSize: 20,
+  },
+
+  boldContainerText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign:'left',
+    fontSize: 17,
   },
 
   containerText: {
     color: 'white',
+    fontWeight: 'bold',
     textAlign:'left',
     fontSize: 16,
   },
@@ -63,8 +76,10 @@ export const styles = StyleSheet.create({
   },
 
   bgImage: {
-    flex: 1,
-    resizeMode: 'stretch',
+    //flex: 1,
+    //resizeMode: 'contain',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
 
