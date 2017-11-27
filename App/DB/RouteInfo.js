@@ -2,11 +2,12 @@ export var TOUR_DB =
 [
   { name:'Users Current Location'           , lat:0        , long: 0, picture: require('./Photos/stops/langson.png'), desc:'',            },  //00
   //Shirby
-  { name:'Cross Cultural Center'            , lat:33.653283, long: -117.743652, picture: require('./Photos/stops/langson.png'), desc:'',},  //01
-  { name:'Aldrich Hall'                     , lat:33.648461, long: -117.840436, picture: require('./Photos/stops/langson.png'), desc:'',},  //02
-  { name:'Langson Library'                  , lat:33.647067, long: -117.841051, picture: require('./Photos/stops/langson.png'), desc:'',},  //03
-  { name:'Engineering Hall'                 , lat:33.643583, long: -117.841422, picture: require('./Photos/stops/langson.png'), desc:'',},  //04
-  { name:'Physical Science Classroom'       , lat:33.643492, long: -117.842575, picture: require('./Photos/stops/langson.png'), desc:'',},  //05
+  { name:'Cross Cultural Center'            , lat:33.653283, long: -117.743652, picture: require('./Photos/stops/langson.png'), desc:'The Cross Cultural Center is a space for students to imagine and inspire an equitable and socially just campus, to affirm and develop intersectional and cultural identities, and to build a more inclusive community. With plenty of space for students to meet and host club events, the Cross Cultural Center is constantly a hub for diverse experiences.',},  //01
+  { name:'Aldrich Hall'                     , lat:33.648461, long: -117.840436, picture: require('./Photos/stops/langson.png'), desc:'Aldrich Hall is a central University Administration building containing not only graduate and undergraduate admissions, but also the University Registrar. You can also find the Chancellor's Office in Aldrich hall!
+',},  //02
+  { name:'Langson Library'                  , lat:33.647067, long: -117.841051, picture: require('./Photos/stops/langson.png'), desc:'Langson Library is one of the eight original buildings on campus, designed by architect William Pereira in 1965. The library is a great resource for research in a wide variety of subjects, along with plenty of study spaces and printing for students.',},  //03
+  { name:'Engineering Hall'                 , lat:33.643583, long: -117.841422, picture: require('./Photos/stops/langson.png'), desc:'Engineering Hall is the newest engineering building on the UC Irvine campus, with a spacious 350-seat auditorium for students. Additionally, it houses the Department of Electrical Engineering and Computer Science, as well as faculty offices and administrative offices. It is commonly known as the "nice glass building in Engineering".',},  //04
+  { name:'Physical Science Classroom'       , lat:33.643492, long: -117.842575, picture: require('./Photos/stops/langson.png'), desc:'Physical Science Classroom is a smart classroom located right next to Physical Sciences Lecture Hall and often confused with the larger lecture hall.',},  //05
   //Calvin
   { name:'Ayala Science Library'            , lat:33.649421, long: -117.844023, picture: require('./Photos/stops/langson.png'), desc:'',},  //06
   { name:'Berk Hall Nursing Science'        , lat:33.64656 , long: -117.856254, picture: require('./Photos/stops/langson.png'), desc:'',},  //07
