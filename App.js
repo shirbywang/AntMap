@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { TOUR_DB, TOUR_ROUTES } from './App/DB/RouteInfo.js'
 import { LoadScreen, HomeScreen, SearchScreen, ListScreen,
-         SummaryScreen, MapScreen, SettingScreen, LandmarkScreen
+         SummaryScreen, MapScreen, SettingScreen, LandmarkScreen, EndScreen
        } from './App/Components/Screens.js';
 
 //Screen Navigation class
@@ -11,12 +11,6 @@ const RootNavigator = StackNavigator({
     screen: HomeScreen,
     navigationOptions: {
       headerTitle: 'Home',
-    },
-  },
-  Load: {
-    screen: LoadScreen,
-    navigationOptions: {
-      headerTitle: 'Loading...',
     },
   },
   List: {
@@ -37,21 +31,23 @@ const RootNavigator = StackNavigator({
       headerTitle: 'Map',
     },
   },
-  Setting: {
-    screen: SettingScreen,
-    navigationOptions: {
-      headerTitle: 'Settings',
-    },
-  },
   Landmark: {
     screen: LandmarkScreen,
     navigationOptions: {
       headerTitle: 'Landmark',
     },
   },
+  End: {
+    screen: EndScreen,
+    navigationOptions: {
+      headerTitle: 'Finish',
+    },
+  },
 },
+
   { headerMode: 'screen' }
 );
+
 
 //Used for initial running when app is opened
 export default RootNavigator;

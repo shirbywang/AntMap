@@ -1,0 +1,25 @@
+export const IMAGES = {
+
+  image0: require('./stops/langson.png'),
+  image1: require('./stops/langson.png'),
+  image2: require('./stops/langson.png'),
+  image3: require('./stops/langson.png'),
+  image4: require('./stops/langson.png'),
+  image5: require('./stops/langson.png'),
+  image6: require('./stops/langson.png'),
+  image7: require('./stops/langson.png'),
+  image8: require('./stops/langson.png'),
+  image9: require('./stops/langson.png'),
+  image10: require('./stops/langson.png'),
+  image11: require('./stops/langson.png'),
+  image12: require('./stops/langson.png'),
+  image13: require('./stops/langson.png'),
+  image14: require('./stops/langson.png'),
+  image15: require('./stops/langson.png'),
+  image16: require('./stops/langson.png'),
+  image17: require('./stops/langson.png'),
+  image18: require('./stops/langson.png'),
+  image19: require('./stops/langson.png'),
+  image20: require('./stops/langson.png'),
+
+}

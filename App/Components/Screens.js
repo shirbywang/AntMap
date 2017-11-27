@@ -2,77 +2,55 @@ import React, { Component } from 'react';
 import { AsyncStorage, Button, Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import Image from 'react-native-scalable-image';
-import { StackNavigator } from 'react-navigation';
+import { NavigationActions, StackNavigator } from 'react-navigation';
 import Polyline from '@mapbox/polyline';
 import NightMapStyles from '../../MapStyles/NightMapStyles';
+import {TOUR_DB, TOUR_ROUTES} from '../DB/RouteInfo.js';
+import { styles } from '../styles.js';
 
-import {TOUR_DB, TOUR_ROUTES} from '../DB/RouteInfo.js'
-import { styles } from '../styles.js'
+const resetAction = NavigationActions.reset ({
+    index: 0,
+    actions: [  NavigationActions.navigate({ routeName: 'Home'})  ],
+})
 
-//Loading Screen Class - Used for Screen #1 (Loading Screen), including navigation settings and view
-export class LoadScreen extends React.Component   {
-  //Used for Screen-to-screen navigation and the design of the top-bar
-  static navigationOptions = {
-      title: 'Loading',                 //Reference Name of Screen
-      header: null,                     //null means that the top-bar is not visible
-  };
-
-  //How this screen will be rendered
-  render() {
-    //Required for navigation (needed in each screen class)
-    const { navigate } = this.props.navigation;
-
-    //How the page is rendered for viewing
-    return (
-      //Viewing Container for files (if there is more than one object, there must be a enclosing container)
-      <View style={{ flex: 1, alignItems: 'center', justifyContent:'space-between', backgroundColor:'black' }}>
-        <Text>         </Text>
-        <Button color='dodgerblue' title= " Go to Home " onPress={() => navigate('Home')} />
-        <Button title= " Go to Loading " onPress={() => navigate('Load') } />
-        <Button title= " Go to Listing " onPress={() => navigate('List') } />
-        <Button title= " Go to Summary " onPress={() => navigate('Summary') } />
-        <Button title= " Go to MapScr  " onPress={() => navigate('Maps') } />
-        <Button title= " Go to Setting " onPress={() => navigate('Setting') } />
-        <Button title= " Go to Landmark" onPress={() => navigate('Landmark') } />
-        <Text>         </Text>
-      </View>
-    )
-  }
-};
-export class HomeScreen extends React.Component   {
+export class HomeScreen extends React.Component     {
   static navigationOptions = {
     title: "Home",
     header: null,
-    };
+  };
 
   render() {
     const { navigate } = this.props.navigation;
     return (
         <View style={styles.container}>
-            <MapView
-              provider= { PROVIDER_GOOGLE }
-              style= { styles.map }
-              customMapStyle={ NightMapStyles }
-              initialRegion={{
-                latitude: 33.646064,
-                longitude: -117.842746,
-                latitudeDelta: 0.010,
-                longitudeDelta: 0.008,
-              }}
-            />
-              <View style={styles.topBar}>
-                <Button height='15' color='rgba(192, 192, 63, 0.6)' title= "Start A New Tour" onPress={() => navigate('List')}/>
-                <View style={styles.overlay}>
-                  <Button width='30' height='10' color='rgba(255,0,0,1)' title= "Debug" onPress={() => navigate('Load')}/>
-                </View>
-              </View>
-              <View style={styles.contentContainer}/>
-              <View style={styles.botBar}/>
+          <MapView
+            provider= { PROVIDER_GOOGLE }
+            style= { styles.map }
+            customMapStyle={ NightMapStyles }
+            showsUserLocation= {true}
+            zoomEnabled	= {false}
+            rotateEnabled = {false}
+            scrollEnabled	= {false}
+            showsPointsOfInterest = {false}
+            initialRegion={{
+              latitude: 33.646064,
+              longitude: -117.842746,
+              latitudeDelta: 0.02,
+              longitudeDelta: 0.016,
+            }}/>
+            <View style={styles.topBar}>
+              <Image source={require('../DB/Photos/AntMapLogo.png')}/>
+            </View>
+            <View>
+              <Button height='15' color='rgba(192, 192, 63, 0.45)' title= "Start A New Tour" onPress={() => navigate('List')}/>
+            </View>
+            <View style={styles.contentContainer}/>
+            <View style={styles.botBar}/>
         </View>
     )
-  }
-};
-export class ListScreen extends React.Component   {
+  }};
+
+export class ListScreen extends React.Component     {
   static navigationOptions = {
     title: "Listings",
     header: null,
@@ -112,7 +90,8 @@ export class ListScreen extends React.Component   {
     )
   }
 };
-export class SummaryScreen extends React.Component {
+
+export class SummaryScreen extends React.Component  {
   static navigationOptions = {
     title: "Summary",
     header: null,
@@ -152,43 +131,45 @@ export class SummaryScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-            <View style={styles.topBar}>
-              <Text style={styles.barText}> {TOUR_ROUTES[this.state.tour].name} Tour </Text>
-            </View>
-            <View style={styles.contentContainer}>
-              <ScrollView>
-                {this.state.route.map((prop,key) => {
-                if(this.state.route[key] !== 0)
-                {
-                  return (
-                      <View key={key}>
-                        <View style={styles.summaryStop} >
-                          <Image source={require('../Photos/thumbnail.jpg')} style={styles.bgImage}>
-                            <View style={styles.summaryStop}>
-                              <Image source={require('../Photos/thumbnail.jpg')}/>
-                              <View style={{flexDirection: 'column',}}>
-                                <Text style={styles.containerText}> Stop #{key} </Text>
-                                <Text style={styles.containerText}>  {TOUR_DB[prop].name} </Text>
-                              </View>
-                            </View>
+          <View style={styles.topBar}>
+            <Text style={styles.barText}> {TOUR_ROUTES[this.state.tour].name} Tour </Text>
+          </View>
+          <View style={styles.contentContainer}>
+            <ScrollView style={{height:600}}>
+              {this.state.route.map((prop,key) => {
+              if(this.state.route[key] != 0)
+              {
+                return (
+                  <View key={key}>
+                    <View style={styles.summaryStop} >
+                      <Image source={TOUR_DB[prop].picture}/>
+                        <View style={styles.summaryStop}>
+                          <Image source={require('../DB/Photos/backdrop.png')} style={styles.bgImage}>
+                          <View style={{flexDirection: 'column',}}>
+                            <Text style={styles.boldContainerText}>    Stop #{key} </Text>
+                            <Text> </Text>
+                            <Text style={styles.containerText}>        {TOUR_DB[prop].name} </Text>
+                          </View>
                           </Image>
                         </View>
-                        <Image source={require('../Photos/sumArrow.png')}/>
-                      </View>
-                    )
-                  }
-                })}
-                </ScrollView>
-            </View>
-            <View style={styles.botBar}>
-              <Button footer='0' height='15' color='rgba(192, 192, 63, 0.6)' title= "Start A New Tour" onPress={() => this.setupTour() }/>
-            </View>
-      </View>
+                    </View>
+                    <Image source={require('../DB/Photos/sumArrow.png')}/>
+                  </View>
+                )
+              }
+              })}
+              <Text style={styles.containerText}>        Tour End    </Text>
+            </ScrollView>
+          </View>
+          <View style={styles.botBar}>
+            <Button footer='0' height='15' color='rgba(192, 192, 63, 0.6)' title= "Start A New Tour" onPress={() => this.setupTour() }/>
+          </View>
+      </ View>
     )
   }
 };
 
-export class MapScreen extends React.Component {
+export class MapScreen extends React.Component      {
   static navigationOptions = {
     title: "Map",
     header: null,
@@ -196,108 +177,184 @@ export class MapScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    this.mapref = null;
     this.state = {
-        from: {lat: 20.000, long: -117.0},
-        to:   {lat: 20.000, long: -117.0},
-        route: [],
-        coords: [],
+      from: {latitude: 20.000, longitude: -117.0},
+      to:   {latitude: 20.000, longitude: -117.0},
+      route: [],
+      coords: [],
+
     };
   }
 
+  onLayout() {
+    var a = this.state.from;
+    var b = this.state.to;
+  }
+
   componentDidMount() {
-    this.loadCurrTour();
+      this.loadCurrTour();
   }
 
   async loadCurrTour() {
-      const value = await AsyncStorage.getItem('route');
-      var route = value.split(',')
-      this.setState({route: route });
-      this.setState({from:{ lat:TOUR_DB[route[0]].lat , long: TOUR_DB[route[0]].long,}});
-      this.setState({to:  { lat:TOUR_DB[route[1]].lat , long: TOUR_DB[route[1]].long}});
-      if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition((p) =>{
-            let v = p.coords;
-            if(route[0] == 0) {
-                this.setState({from:{ lat: v.latitude , long: v.longitude,}});
-            }
-            //console.warn(JSON.stringify(this.state.from.lat+','+this.state.from.long))
-            this.getDirections(
-              JSON.stringify(this.state.from.lat+','+this.state.from.long),
-              JSON.stringify(this.state.to.lat+','+this.state.to.long)
-            );
-          });
-      }
-    }
-
-    async getDirections(startLoc, destinationLoc) {
-    try {
-        //console.warn(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLoc }&destination=${ destinationLoc }`)
-        let resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLoc }&destination=${ destinationLoc }`)
-        let respJson = await resp.json();
-        let points = Polyline.decode(respJson.routes[0].overview_polyline.points);
-        let coords = points.map((point, index) => {
-            return  {
-                latitude : point[0],
-                longitude : point[1]
-            }
-        })
-        this.setState({coords: coords})
-        return coords
-    } catch(error) {
-        return error
-    }
-}
-
-  arrivAtLandMark()
-  {
-
+    const value = await AsyncStorage.getItem('route');
+    var route = value.split(',')
+    this.setState({route: route });
+    this.setState({from:{ latitude:TOUR_DB[parseInt(route[0])].lat , longitude: TOUR_DB[parseInt(route[0])].long,}});
+    this.setState({to:  { latitude:TOUR_DB[parseInt(route[1])].lat , longitude: TOUR_DB[parseInt(route[1])].long}});
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((p) =>{
+        let v = p.coords;
+        if(route[0] == 0) {
+          this.setState({from:{ latitude: v.latitude , longitude: v.longitude,}});
+        }
+        //console.warn(JSON.stringify(this.state.from.lat+','+this.state.from.long))
+        this.getDirections(
+          JSON.stringify(this.state.from.latitude+','+this.state.from.longitude),
+          JSON.stringify(this.state.to.latitude  +','+this.state.to.longitude)
+        );
+        (error) => alert(error.message),
+        {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+      })
+    };
   }
 
-  render() {
-  const { navigate } = this.props.navigation;
-  return (
-    <View style={styles.container}>
-        <MapView
-          provider= { PROVIDER_GOOGLE }
-          style= { styles.map }
-          customMapStyle={ NightMapStyles }
-          initialRegion={{
-            latitude: 33.646064,
-            longitude: -117.842746,
-            latitudeDelta: 0.010,
-            longitudeDelta: 0.008,
-          }}
-        />
-          <View style={styles.topBar}/>
-          <View style={styles.contentContainer}/>
-          <View style={styles.botBar}>
+  async getDirections(startLoc, destinationLoc) {
+    try {
+      //console.warn(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLoc }&destination=${ destinationLoc }`)
+      let resp = await fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${ startLoc }&destination=${ destinationLoc }&mode=walking`)
+      let respJson = await resp.json();
+      let points = Polyline.decode(respJson.routes[0].overview_polyline.points);
+      let coords = points.map((point, index) => {
+        return  {
+          latitude : point[0],
+          longitude : point[1]
+        }
+      })
+      this.setState({coords: coords})
+      return coords
+    } catch(error) {
+      return error
+    }
+  }
 
-            <Button height='15' width ='100' color='rgba(192, 192, 63, 0.6)' title= "I'm there!" onPress={() => navigate('List')}/>
-          </View>
-    </View>
-  )
- }
-};
-
-export class SettingScreen extends React.Component {
-  static navigationOptions = { title: "Settings", };
+  arriveAtLandmark() {
+    const { navigate } = this.props.navigation;
+    AsyncStorage.setItem('destTag', this.state.route[1])
+    navigate('Landmark')
+  }
 
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.container}>
+      <MapView
+      provider= { PROVIDER_GOOGLE }
+      style= { styles.map }
+      ref={(ref) => { this.mapRef = ref }}
+      //onLayout = {() => this.map.fitToCoordinates(this.props.myLatLongs,{edgePadding: { top: 10, right: 10, bottom: 10, left: 10 }, animated: false})}
+      customMapStyle={ NightMapStyles }
+      initialRegion={{
+        latitude: 33.646064,
+        longitude: -117.842746,
+        latitudeDelta: 0.02,
+        longitudeDelta: 0.016,}}
+        >
+        <MapView.Marker
+        coordinate={this.state.from}
+        pinColor= 'dodgerblue'
+        title={"You are here"}
+        />
+        <MapView.Marker
+        coordinate={this.state.to}
+        pinColor= 'goldenrod'
+        title={"Destination"}
+        />
+        <MapView.Polyline
+        coordinates = {this.state.coords}
+        strokeWidth = {2}
+        strokeColor = 'dodgerblue'
+        />
+        </MapView>
+        <View style={styles.topBar}/>
+        <View style={styles.contentContainer}/>
+        <View style={styles.botBar}>
+        <Button height='15' width ='100' color='rgba(192, 192, 63, 0.85)' title= "I'm there!" onPress={() => this.arriveAtLandmark()}/>
+        </View>
+        </View>
+      )
+    }
+  };
+
+export class LandmarkScreen extends React.Component {
+  static navigationOptions = {
+    title: "Landmark",
+    header: null,
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        site: 0,
+    };
+  }
+
+  async componentDidMount() {
+    const value = await AsyncStorage.getItem('destTag');
+    this.setState({site: value});
+  }
+
+  async startNextStart(){
+    const { navigate } = this.props.navigation;
+    const v = await AsyncStorage.getItem('route');
+    var r = v.substr(2,(v.length));
+    AsyncStorage.setItem('route', r)
+    var route = r.split(',')
+    if(route.length <= 1 )
+    {
+      navigate('End');
+    }
+    else {
+      navigate('Maps');
+    }
+  }
+
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View style={styles.container}>
+        <View style={styles.topBar}>
+          <Text style={styles.containerText}> {TOUR_DB[this.state.site].name} </Text>
+        </View>
+        <View style={styles.contentContainer}>
+          <Image source={TOUR_DB[this.state.site].picture}/>
+          <Text style={styles.containerText}>      {TOUR_DB[this.state.site].desc} </Text>
+        </View>
+        <View style={styles.botBar}>
+          <Button height='15' width ='100' color='rgba(192, 192, 63, 0.6)' title= "Go to the next stop!" onPress={() => this.startNextStart()}/>
+        </View>
       </View>
     )
   }
 };
 
-export class LandmarkScreen extends React.Component {
-  static navigationOptions = { title: "Landmark", };
+export class EndScreen extends React.Component      {
+  static navigationOptions = {
+    title: "End",
+    header: null,
+  };
 
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.container}>
+        <View style={styles.topBar}/>
+        <View style={styles.contentContainer}>
+          <Button height='15' width ='100' color='rgba(192, 192, 63, 0.6)' title= "Back to the Main Screen!" onPress={() => this.props.navigation.dispatch(resetAction)}/>
+        </View>
+        <View style={styles.botBar}>
+
+        </View>
       </View>
     )
   }
