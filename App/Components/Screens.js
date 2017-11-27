@@ -37,8 +37,7 @@ export class HomeScreen extends React.Component     {
               longitude: -117.842746,
               latitudeDelta: 0.02,
               longitudeDelta: 0.016,
-            }}
-          />
+            }}/>
             <View style={styles.topBar}>
               <Image source={require('../DB/Photos/AntMapLogo.png')}/>
             </View>
@@ -49,8 +48,7 @@ export class HomeScreen extends React.Component     {
             <View style={styles.botBar}/>
         </View>
     )
-  }
-};
+  }};
 
 export class ListScreen extends React.Component     {
   static navigationOptions = {
@@ -192,7 +190,6 @@ export class MapScreen extends React.Component      {
   onLayout() {
     var a = this.state.from;
     var b = this.state.to;
-
   }
 
   componentDidMount() {
@@ -241,8 +238,7 @@ export class MapScreen extends React.Component      {
     }
   }
 
-  arriveAtLandmark()
-  {
+  arriveAtLandmark() {
     const { navigate } = this.props.navigation;
     AsyncStorage.setItem('destTag', this.state.route[1])
     navigate('Landmark')
