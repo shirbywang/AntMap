@@ -105,6 +105,10 @@ export class SummaryScreen extends React.Component  {
     };
   }
 
+  componentDidMount() {
+    this.loadTour();
+  }
+
   async loadTour() {
     const num = await AsyncStorage.getItem('tour');
     this.setState({tour: num});
@@ -114,17 +118,13 @@ export class SummaryScreen extends React.Component  {
   async setupTour() {
     const { navigate } = this.props.navigation;
     try {
-      var r = JSON.stringify(this.state.route);
-      r = r.substr(1,(r.length-2));
+      var r = JSON.stringify(this.state.route).replace(/^\[|]$/g,'');
       AsyncStorage.setItem('route', r)
     }
     catch (error) { console.log(error); }
     navigate('Maps');
   }
 
-  componentDidMount() {
-    this.loadTour();
-  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -162,7 +162,7 @@ export class SummaryScreen extends React.Component  {
             </ScrollView>
           </View>
           <View style={styles.botBar}>
-            <Button footer='0' height='15' color='rgba(192, 192, 63, 0.6)' title= "Start A New Tour" onPress={() => this.setupTour() }/>
+            <Button footer='0' height='15' color='rgba(192, 192, 63, 0.6)' title= "Begin this Tour" onPress={() => this.setupTour() }/>
           </View>
       </ View>
     )
@@ -187,17 +187,13 @@ export class MapScreen extends React.Component      {
     };
   }
 
-  onLayout() {
-    var a = this.state.from;
-    var b = this.state.to;
-  }
-
   componentDidMount() {
       this.loadCurrTour();
   }
 
   async loadCurrTour() {
     const value = await AsyncStorage.getItem('route');
+    console.warn('Map',value)
     var route = value.split(',')
     this.setState({route: route });
     this.setState({from:{ latitude:TOUR_DB[parseInt(route[0])].lat , longitude: TOUR_DB[parseInt(route[0])].long,}});
@@ -208,7 +204,6 @@ export class MapScreen extends React.Component      {
         if(route[0] == 0) {
           this.setState({from:{ latitude: v.latitude , longitude: v.longitude,}});
         }
-        //console.warn(JSON.stringify(this.state.from.lat+','+this.state.from.long))
         this.getDirections(
           JSON.stringify(this.state.from.latitude+','+this.state.from.longitude),
           JSON.stringify(this.state.to.latitude  +','+this.state.to.longitude)
@@ -307,9 +302,11 @@ export class LandmarkScreen extends React.Component {
   async startNextStart(){
     const { navigate } = this.props.navigation;
     const v = await AsyncStorage.getItem('route');
-    var r = v.substr(2,(v.length));
-    AsyncStorage.setItem('route', r)
-    var route = r.split(',')
+    var route = v.split(',').splice(1);
+    route = route.map(Number);
+    var s = JSON.stringify(route).replace(/^\[|]$/g,'');
+    console.warn(s)
+    AsyncStorage.setItem('route',s )
     if(route.length <= 1 )
     {
       navigate('End');
