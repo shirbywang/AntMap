@@ -193,7 +193,6 @@ export class MapScreen extends React.Component      {
 
   async loadCurrTour() {
     const value = await AsyncStorage.getItem('route');
-    console.warn('Map',value)
     var route = value.split(',')
     this.setState({route: route });
     this.setState({from:{ latitude:TOUR_DB[parseInt(route[0])].lat , longitude: TOUR_DB[parseInt(route[0])].long,}});
@@ -305,7 +304,6 @@ export class LandmarkScreen extends React.Component {
     var route = v.split(',').splice(1);
     route = route.map(Number);
     var s = JSON.stringify(route).replace(/^\[|]$/g,'');
-    console.warn(s)
     AsyncStorage.setItem('route',s )
     if(route.length <= 1 )
     {
@@ -346,6 +344,7 @@ export class EndScreen extends React.Component      {
     return (
       <View style={styles.container}>
         <View style={styles.topBar}/>
+          <Text style={styles.barText}> Tour Completed! </Text>
         <View style={styles.contentContainer}>
           <Button height='15' width ='100' color='rgba(192, 192, 63, 0.6)' title= "Back to the Main Screen!" onPress={() => this.props.navigation.dispatch(resetAction)}/>
         </View>
